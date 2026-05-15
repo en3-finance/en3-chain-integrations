@@ -1,4 +1,4 @@
-﻿# Examples
+# Examples
 
 Placeholder directory for public EVM integration examples.
 

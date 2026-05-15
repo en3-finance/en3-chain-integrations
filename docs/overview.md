@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 
 en3-chain-integrations contains public EVM network configuration and integration templates.
 

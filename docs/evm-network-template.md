@@ -1,4 +1,4 @@
-﻿# EVM Network Template
+# EVM Network Template
 
 Use `chain-configs/evm-network.example.json` as the base structure for EVM-compatible network configuration.
 

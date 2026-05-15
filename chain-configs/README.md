@@ -1,4 +1,4 @@
-﻿# Chain Configs
+# Chain Configs
 
 This directory contains public EVM-compatible network configuration templates.
 

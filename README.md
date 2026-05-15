@@ -1,4 +1,4 @@
-﻿# en3-chain-integrations
+# en3-chain-integrations
 
 Public EVM network configuration and integration templates for en3.
 
