@@ -1,0 +1,14 @@
+﻿{
+  "name": "Example EVM Network",
+  "chainId": "TODO",
+  "rpcUrl": "TODO",
+  "blockExplorerUrl": "TODO",
+  "nativeCurrency": {
+    "name": "TODO",
+    "symbol": "TODO",
+    "decimals": 18
+  },
+  "networkType": "testnet-or-mainnet",
+  "notes": "Replace TODO values with official network parameters before running demos."
+}
+
