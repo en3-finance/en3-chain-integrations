@@ -1,4 +1,4 @@
-﻿# Network Onboarding Checklist
+# Network Onboarding Checklist
 
 ## Technical Review
 
