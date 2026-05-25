@@ -1,0 +1,12 @@
+network: base-sepolia
+chainId: 84532
+environment: sandbox
+nativeAsset: ETH
+rpcUrl: https://example.invalid/base-sepolia
+explorerUrl: https://sepolia.basescan.org
+stablecoins:
+  - symbol: USDC
+    address: "0x0000000000000000000000000000000000000000"
+    decimals: 6
+notes:
+  - Placeholder RPC URL. Do not publish production endpoints or keys.

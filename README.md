@@ -1,55 +1,44 @@
-# en3-chain-integrations
+# En3 Chain Integrations
 
-Public EVM network configuration and integration templates for en3.
+Status: public reference / sandbox artifact. This repository is intended to document and demonstrate the En3 integration surface. Production cryptography, signing orchestration, policy enforcement, risk logic, ledger infrastructure, treasury execution, and customer deployments are private by design.
 
-Status: Early public preview
+## What This Repo Is
 
-## Overview
+`en3-chain-integrations` contains sandbox chain adapters and network configuration examples for stablecoin and digital-asset payment flows.
 
-This repository contains public, network-agnostic EVM integration templates for en3 wallet infrastructure.
+## Who It Is For
 
-Examples of possible EVM-compatible integration targets may include Ethereum, Base, Polygon, Arbitrum, ADI Chain, Tempo, and other networks, subject to technical and business evaluation.
+This repo is for integration engineers and partner diligence teams reviewing how En3 can represent network metadata and adapter boundaries without exposing production infrastructure.
 
-## What This Repository Contains
+## What It Demonstrates
 
-- EVM network configuration template.
-- Network onboarding checklist.
-- Testnet and mainnet readiness checklist.
-- RPC configuration placeholders.
-- Block explorer placeholders.
-- Native currency placeholders.
-- Chain-specific risk notes placeholder.
-- Integration testing checklist.
+- Sandbox EVM network metadata.
+- Stablecoin token metadata examples.
+- Address validation concepts.
+- Transaction-status adapter concepts.
+- Separation between public configuration examples and production chain operations.
 
-## What This Repository Does Not Contain
+## Intentionally Out Of Scope
 
-- Production RPC credentials.
-- Private network allowlists.
-- Customer-specific network settings.
-- Production custody logic.
-- Proprietary backend services.
-- Official network partnership claims.
+This repo does not publish production RPC URLs, keys, customer nodes, private allowlists, real deployment configs, production signing, policy enforcement, ledger logic, treasury execution, or chain operations runbooks.
 
-## Enterprise Wallet Infrastructure Context
+## Contents
 
-Network integration templates help financial institutions evaluate how en3 can support EVM-compatible ecosystems while keeping the core wallet platform boundary private.
+- `docs/adapter-interface.md`
+- `docs/stablecoin-networks.md`
+- `networks/evm/polygon-amoy.yaml`
+- `networks/evm/base-sepolia.yaml`
+- `networks/evm/arbitrum-sepolia.yaml`
+- `examples/address-validation/README.md`
+- `examples/token-metadata/README.md`
+- `examples/transaction-status/README.md`
 
-## Public Demo And Integration Boundary
+## Related En3 Repositories
 
-Templates should use placeholder values unless parameters are official public network metadata. Do not publish private endpoints, API keys, customer settings, or production access details.
-
-## Security And Custody Boundary
-
-This repository does not contain custody logic, MPC implementation, signing internals, or production policy controls.
-
-## Roadmap
-
-- Add additional EVM configuration examples.
-- Add integration testing checklist details.
-- Add network onboarding templates.
-- Align SDK and wallet demos with shared chain configuration structure.
-
-## Contact
-
-Website: https://en3.finance
-
+- `en3-docs`
+- `en3-api-spec`
+- `en3-wallet-sdk`
+- `en3-reference-bank`
+- `en3-admin-console`
+- `en3-web-wallet`
+- `en3-mobile-wallet`
