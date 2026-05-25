@@ -1,0 +1,12 @@
+network: polygon-amoy
+chainId: 80002
+environment: sandbox
+nativeAsset: POL
+rpcUrl: https://example.invalid/polygon-amoy
+explorerUrl: https://amoy.polygonscan.com
+stablecoins:
+  - symbol: USDC
+    address: "0x0000000000000000000000000000000000000000"
+    decimals: 6
+notes:
+  - Placeholder RPC URL. Do not publish production endpoints or keys.
