@@ -1,12 +1,29 @@
-network: base-sepolia
+networkId: base-sepolia
+displayName: Base Sepolia
+chainFamily: evm
 chainId: 84532
 environment: sandbox
-nativeAsset: ETH
-rpcUrl: https://example.invalid/base-sepolia
-explorerUrl: https://sepolia.basescan.org
-stablecoins:
-  - symbol: USDC
-    address: "0x0000000000000000000000000000000000000000"
+nativeAsset:
+  symbol: ETH
+  name: Ether
+  decimals: 18
+rpc:
+  kind: placeholder
+  value: https://example.invalid/base-sepolia
+  note: Placeholder RPC boundary. Do not publish production endpoints or keys.
+blockExplorerUrl: https://sepolia.basescan.org
+confirmationsRequired: 12
+assets:
+  - assetId: base-sepolia-usdc
+    networkId: base-sepolia
+    symbol: USDC
+    name: USD Coin
     decimals: 6
+    assetType: stablecoin
+    tokenAddress: "0x0000000000000000000000000000000000000000"
+    metadataSource: placeholder
+    isPlaceholder: true
 notes:
-  - Placeholder RPC URL. Do not publish production endpoints or keys.
+  - Sandbox/reference configuration only.
+  - RPC value is intentionally non-routable and must be replaced outside this public repo.
+  - Token address is a placeholder unless approved public testnet metadata is added later.

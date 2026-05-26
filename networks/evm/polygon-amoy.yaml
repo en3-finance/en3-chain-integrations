@@ -1,12 +1,29 @@
-network: polygon-amoy
+networkId: polygon-amoy
+displayName: Polygon Amoy
+chainFamily: evm
 chainId: 80002
 environment: sandbox
-nativeAsset: POL
-rpcUrl: https://example.invalid/polygon-amoy
-explorerUrl: https://amoy.polygonscan.com
-stablecoins:
-  - symbol: USDC
-    address: "0x0000000000000000000000000000000000000000"
+nativeAsset:
+  symbol: POL
+  name: Polygon Ecosystem Token
+  decimals: 18
+rpc:
+  kind: placeholder
+  value: https://example.invalid/polygon-amoy
+  note: Placeholder RPC boundary. Do not publish production endpoints or keys.
+blockExplorerUrl: https://amoy.polygonscan.com
+confirmationsRequired: 12
+assets:
+  - assetId: polygon-amoy-usdc
+    networkId: polygon-amoy
+    symbol: USDC
+    name: USD Coin
     decimals: 6
+    assetType: stablecoin
+    tokenAddress: "0x0000000000000000000000000000000000000000"
+    metadataSource: placeholder
+    isPlaceholder: true
 notes:
-  - Placeholder RPC URL. Do not publish production endpoints or keys.
+  - Sandbox/reference configuration only.
+  - RPC value is intentionally non-routable and must be replaced outside this public repo.
+  - Token address is a placeholder unless approved public testnet metadata is added later.
