@@ -21,7 +21,7 @@ Status: public reference / sandbox artifact. This repository is intended to docu
 - `npm test` - 8 Node tests passed
 - `npm run build`
 - Secret/RPC scan reviewed: only `example.invalid`, public explorer URLs, package registry URLs, and documentation examples were found; no secrets or production RPC credentials.
-- Deprecated public event scan: no old internal event names or `mock_signed` matches.
+- Deprecated public event scan: no old internal event names or legacy mock-signing token matches.
 
 ## Branch
 
