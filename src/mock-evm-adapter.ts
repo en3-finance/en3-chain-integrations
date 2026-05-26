@@ -5,8 +5,10 @@ import type {
   BroadcastResult,
   ChainAdapter,
   NetworkConfig,
+  SandBankLifecycleUpdate,
   TokenMetadata,
   TransactionStatus,
+  TransactionState,
 } from "./types.js";
 
 export interface MockTransactionStatusSeed {
@@ -19,6 +21,26 @@ export interface MockEvmAdapterOptions {
   transactionStatuses?: MockTransactionStatusSeed[];
   now?: () => Date;
 }
+
+export const SANDBANK_SANDBOX_PAYMENT_STATUSES = [
+  "sandbox_payment_requested",
+  "sandbox_address_validated",
+  "sandbox_mock_broadcasted",
+  "sandbox_confirming",
+  "sandbox_settled",
+  "sandbox_failed",
+  "sandbox_unknown",
+] as const;
+
+export const SANDBANK_SANDBOX_PAYMENT_EVENTS = [
+  "sandbank.sandbox.payment_requested",
+  "sandbank.sandbox.address_validated",
+  "sandbank.sandbox.mock_broadcasted",
+  "sandbank.sandbox.status_updated",
+  "sandbank.sandbox.payment_settled",
+  "sandbank.sandbox.payment_failed",
+  "sandbank.sandbox.status_unknown",
+] as const;
 
 const sandboxWarning =
   "Format-only sandbox validation; no KYT, sanctions, risk, or policy checks.";
@@ -327,6 +349,61 @@ export class MockEvmAdapter implements ChainAdapter {
       accepted: errors.length === 0,
       errors,
     };
+  }
+}
+
+export function mapTransactionStatusToSandBankLifecycle(
+  status: TransactionStatus,
+): SandBankLifecycleUpdate {
+  const mapped = mapTransactionState(status.state);
+
+  return {
+    paymentStatus: mapped.paymentStatus,
+    paymentEvent: mapped.paymentEvent,
+    transactionState: status.state,
+    txHash: status.txHash,
+    confirmations: status.confirmations,
+    requiredConfirmations: status.requiredConfirmations,
+    updatedAt: status.updatedAt,
+    sandboxOnly: true,
+    note: "Synthetic SandBank sandbox lifecycle update derived from mock chain adapter status.",
+  };
+}
+
+function mapTransactionState(
+  state: TransactionState,
+): Pick<SandBankLifecycleUpdate, "paymentStatus" | "paymentEvent"> {
+  switch (state) {
+    case "submitted":
+      return {
+        paymentStatus: "sandbox_payment_requested",
+        paymentEvent: "sandbank.sandbox.payment_requested",
+      };
+    case "broadcast":
+      return {
+        paymentStatus: "sandbox_mock_broadcasted",
+        paymentEvent: "sandbank.sandbox.mock_broadcasted",
+      };
+    case "confirming":
+      return {
+        paymentStatus: "sandbox_confirming",
+        paymentEvent: "sandbank.sandbox.status_updated",
+      };
+    case "settled":
+      return {
+        paymentStatus: "sandbox_settled",
+        paymentEvent: "sandbank.sandbox.payment_settled",
+      };
+    case "failed":
+      return {
+        paymentStatus: "sandbox_failed",
+        paymentEvent: "sandbank.sandbox.payment_failed",
+      };
+    case "unknown":
+      return {
+        paymentStatus: "sandbox_unknown",
+        paymentEvent: "sandbank.sandbox.status_unknown",
+      };
   }
 }
 

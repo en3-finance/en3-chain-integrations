@@ -129,6 +129,36 @@ Production orchestration for IAM/RBAC, policies, approvals, transaction
 simulation, audit trails, risk interfaces, ledger, reconciliation, sweeping,
 treasury execution, signing, and custody remains private by design.
 
+## SandBank Sandbox Lifecycle Mapping
+
+SandBank sandbox examples share canonical public statuses and events with the
+mock chain adapter. `mapTransactionStatusToSandBankLifecycle()` converts a
+mock `TransactionStatus` into a synthetic SandBank lifecycle update.
+
+Allowed sandbox statuses are:
+
+- `sandbox_payment_requested`
+- `sandbox_address_validated`
+- `sandbox_mock_broadcasted`
+- `sandbox_confirming`
+- `sandbox_settled`
+- `sandbox_failed`
+- `sandbox_unknown`
+
+Allowed sandbox events are:
+
+- `sandbank.sandbox.payment_requested`
+- `sandbank.sandbox.address_validated`
+- `sandbank.sandbox.mock_broadcasted`
+- `sandbank.sandbox.status_updated`
+- `sandbank.sandbox.payment_settled`
+- `sandbank.sandbox.payment_failed`
+- `sandbank.sandbox.status_unknown`
+
+These values are synthetic public demo values only. They are not production
+event streams, persistence contracts, custody workflows, or operational
+orchestration.
+
 ## Safety Rules
 
 - Do not publish real RPC secrets or production node URLs.

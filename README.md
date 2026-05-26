@@ -54,6 +54,8 @@ orchestration private.
 - `docs/adapter-interface.md`
 - `docs/stablecoin-networks.md`
 - `docs/public-private-boundary.md`
+- `docs/sandbank-chain-flow.md`
+- `examples/sandbank-sandbox-evm/README.md`
 - `networks/evm/polygon-amoy.yaml`
 - `networks/evm/base-sepolia.yaml`
 - `networks/evm/arbitrum-sepolia.yaml`

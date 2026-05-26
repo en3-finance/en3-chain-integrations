@@ -14,6 +14,24 @@ export type TransactionState =
   | "failed"
   | "unknown";
 
+export type SandBankPaymentStatus =
+  | "sandbox_payment_requested"
+  | "sandbox_address_validated"
+  | "sandbox_mock_broadcasted"
+  | "sandbox_confirming"
+  | "sandbox_settled"
+  | "sandbox_failed"
+  | "sandbox_unknown";
+
+export type SandBankPaymentEvent =
+  | "sandbank.sandbox.payment_requested"
+  | "sandbank.sandbox.address_validated"
+  | "sandbank.sandbox.mock_broadcasted"
+  | "sandbank.sandbox.status_updated"
+  | "sandbank.sandbox.payment_settled"
+  | "sandbank.sandbox.payment_failed"
+  | "sandbank.sandbox.status_unknown";
+
 export type AddressValidationReason =
   | "valid"
   | "empty"
@@ -85,6 +103,18 @@ export interface TransactionStatus {
   requiredConfirmations: number;
   updatedAt: string;
   failureReason?: string;
+}
+
+export interface SandBankLifecycleUpdate {
+  paymentStatus: SandBankPaymentStatus;
+  paymentEvent: SandBankPaymentEvent;
+  transactionState: TransactionState;
+  txHash: string;
+  confirmations: number;
+  requiredConfirmations: number;
+  updatedAt: string;
+  sandboxOnly: true;
+  note: string;
 }
 
 export interface BroadcastRequest {
